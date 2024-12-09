@@ -88,12 +88,16 @@ function renderPlaces(places) {
         let longitude = place.location.lng;
 
         let model = document.createElement('a-entity');
+
+        // Définir les coordonnées GPS et placer l'objet au sol
         model.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
+        model.setAttribute('position', '0 0.1 0'); // Position au sol (0.1 pour éviter de "coller" au sol)
 
         setModel(models[modelIndex], model);
 
         model.setAttribute('animation-mixer', '');
 
+        // Changer les modèles avec un bouton
         document.querySelector('button[data-action="change"]').addEventListener('click', function () {
             var entity = document.querySelector('[gps-entity-place]');
             modelIndex++;
