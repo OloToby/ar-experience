@@ -2,17 +2,38 @@ window.onload = () => {
     const button = document.querySelector('button[data-action="change"]');
     button.innerText = '﹖';
 
-    let places = staticLoadPlaces();
-    renderPlaces(places);
+    if ('geolocation' in navigator) {
+        navigator.geolocation.getCurrentPosition(
+            (position) => {
+                const places = loadPlaces(position.coords.latitude, position.coords.longitude);
+                renderPlaces(places);
+            },
+            (err) => {
+                console.warn('Erreur GPS, utilisation des coordonnées simulées.', err);
+                // Coordonnées simulées pour un bâtiment
+                const simulatedLatitude = 46.158051;
+                const simulatedLongitude = -1.153400;
+                const places = loadPlaces(simulatedLatitude, simulatedLongitude);
+                renderPlaces(places);
+            },
+            { enableHighAccuracy: true }
+        );
+    } else {
+        console.warn('GPS non disponible, utilisation des coordonnées simulées.');
+        const simulatedLatitude = 46.158051;
+        const simulatedLongitude = -1.153400;
+        const places = loadPlaces(simulatedLatitude, simulatedLongitude);
+        renderPlaces(places);
+    }
 };
 
-function staticLoadPlaces() {
+function loadPlaces(lat, lng) {
     return [
         {
             name: 'Pokèmon',
             location: {
-                lat: 46.158051,
-                lng: -1.153400,
+                lat: lat,
+                lng: lng,
             },
         },
     ];
