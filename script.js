@@ -42,19 +42,19 @@ function loadPlaces(lat, lng) {
 var models = [
     {
         url: './assets/magnemite/scene.gltf',
-        scale: '0.5 0.5 0.5',
+        scale: '0.3 0.3 0.3',
         info: 'Magnemite, Lv. 5, HP 10/10',
         rotation: '0 180 0',
     },
     {
         url: './assets/articuno/scene.gltf',
-        scale: '0.2 0.2 0.2',
+        scale: '0.01 0.01 0.01',
         rotation: '0 180 0',
         info: 'Articuno, Lv. 80, HP 100/100',
     },
     {
         url: './assets/dragonite/scene.gltf',
-        scale: '0.08 0.08 0.08',
+        scale: '0.04 0.04 0.04',
         rotation: '0 180 0',
         info: 'Dragonite, Lv. 99, HP 150/150',
     },
