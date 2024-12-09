@@ -91,7 +91,7 @@ function renderPlaces(places) {
 
         // Définir les coordonnées GPS et placer l'objet au sol
         model.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
-        model.setAttribute('position', '0 1.6 -10');
+        model.setAttribute('position', '0 5 -10');
 
 
         setModel(models[modelIndex], model);
