@@ -1,6 +1,6 @@
 window.onload = () => {
     const button = document.querySelector('button[data-action="change"]');
-    button.innerText = '﹖';
+    button.innerText = 'Changer le modèle';
 
     if ('geolocation' in navigator) {
         navigator.geolocation.getCurrentPosition(
@@ -10,13 +10,12 @@ window.onload = () => {
             },
             (err) => {
                 console.warn('Erreur GPS, utilisation des coordonnées simulées.', err);
-                // Coordonnées simulées pour un bâtiment
                 const simulatedLatitude = 46.158051;
                 const simulatedLongitude = -1.153400;
                 const places = loadPlaces(simulatedLatitude, simulatedLongitude);
                 renderPlaces(places);
             },
-            { enableHighAccuracy: true }
+            { enableHighAccuracy: true, timeout: 5000, maximumAge: 0 }
         );
     } else {
         console.warn('GPS non disponible, utilisation des coordonnées simulées.');
@@ -39,7 +38,7 @@ function loadPlaces(lat, lng) {
     ];
 }
 
-var models = [
+const models = [
     {
         url: './assets/magnemite/scene.gltf',
         scale: '0.3 0.3 0.3',
@@ -60,52 +59,42 @@ var models = [
     },
 ];
 
-var modelIndex = 0;
-var setModel = function (model, entity) {
-    if (model.scale) {
-        entity.setAttribute('scale', model.scale);
-    }
+let modelIndex = 0;
 
-    if (model.rotation) {
-        entity.setAttribute('rotation', model.rotation);
-    }
-
-    if (model.position) {
-        entity.setAttribute('position', model.position);
-    }
+const setModel = (model, entity) => {
+    if (model.scale) entity.setAttribute('scale', model.scale);
+    if (model.rotation) entity.setAttribute('rotation', model.rotation);
+    if (model.position) entity.setAttribute('position', model.position);
 
     entity.setAttribute('gltf-model', model.url);
+    entity.setAttribute('animation', 'property: position; dir: alternate; loop: true; dur: 3000; to: 0 5.2 10');
 
-    const div = document.querySelector('.instructions');
-    div.innerText = model.info;
+    const infoDiv = document.querySelector('.instructions');
+    infoDiv.innerText = model.info;
 };
 
-function renderPlaces(places) {
-    let scene = document.querySelector('a-scene');
+const renderPlaces = (places) => {
+    const scene = document.querySelector('a-scene');
 
     places.forEach((place) => {
-        let latitude = place.location.lat;
-        let longitude = place.location.lng;
+        const latitude = place.location.lat;
+        const longitude = place.location.lng;
 
-        let model = document.createElement('a-entity');
-
-        // Définir les coordonnées GPS et placer l'objet au sol
+        const model = document.createElement('a-entity');
         model.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
         model.setAttribute('position', '0 5 10');
-
+        model.setAttribute('look-at', '[camera]');
 
         setModel(models[modelIndex], model);
 
         model.setAttribute('animation-mixer', '');
 
-        // Changer les modèles avec un bouton
-        document.querySelector('button[data-action="change"]').addEventListener('click', function () {
-            var entity = document.querySelector('[gps-entity-place]');
-            modelIndex++;
-            var newIndex = modelIndex % models.length;
-            setModel(models[newIndex], entity);
+        document.querySelector('button[data-action="change"]').addEventListener('click', () => {
+            const entity = document.querySelector('[gps-entity-place]');
+            modelIndex = (modelIndex + 1) % models.length;
+            setModel(models[modelIndex], entity);
         });
 
         scene.appendChild(model);
     });
-}
+};
