@@ -59,11 +59,36 @@ const models = [
     },
     {
         url: './assets/sac_dapparat_touareg/scene.gltf',
-        scale: '0.04 0.04 0.04',
+        scale: '1 1 1',
         rotation: '0 180 0',
         info: 'Sac_dapparat_touareg',
     },
+    {
+        url: './assets/costume_dosiris/scene.gltf',
+        scale: '1 1 1',
+        rotation: '0 180 0',
+        info: 'costume_dosiris',
+    },
+    {
+        url: './assets/crane_arsinoitherium/scene.gltf',
+        scale: '1 1 1',
+        rotation: '0 180 0',
+        info: 'crane_arsinoitherium',
+    },
+    {
+        url: './assets/masque_dinitiation_des_jeunes_diola_au_senegal/scene.gltf',
+        scale: '1 1 1',
+        rotation: '0 180 0',
+        info: 'masque_dinitiation_des_jeunes_diola_au_senegal',
+    },
+    {
+        url: './assets/masque_gelede/scene.gltf',
+        scale: '1 1 1',
+        rotation: '0 180 0',
+        info: 'masque_gelede',
+    },
 ];
+
 
 let modelIndex = 0;
 

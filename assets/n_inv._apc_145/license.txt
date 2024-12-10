@@ -1,0 +1,11 @@
+Model Information:
+* title:	N° inv. APC 145
+* source:	https://sketchfab.com/3d-models/n-inv-apc-145-c03c5e9cb0c444bf8c4328a260b15a11
+* author:	MuseeduMasqueBinche (https://sketchfab.com/MuseeduMasqueBinche)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "N° inv. APC 145" (https://sketchfab.com/3d-models/n-inv-apc-145-c03c5e9cb0c444bf8c4328a260b15a11) by MuseeduMasqueBinche (https://sketchfab.com/MuseeduMasqueBinche) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

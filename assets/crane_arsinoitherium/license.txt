@@ -1,0 +1,11 @@
+Model Information:
+* title:	Crane Arsinoitherium
+* source:	https://sketchfab.com/3d-models/crane-arsinoitherium-390d7a50a8ab4fb094dc4460afccd345
+* author:	Tavernier Amaury (https://sketchfab.com/svtavernier)
+
+Model License:
+* license type:	CC-BY-NC-SA-4.0 (http://creativecommons.org/licenses/by-nc-sa/4.0/)
+* requirements:	Author must be credited. No commercial use. Modified versions must have the same license.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Crane Arsinoitherium" (https://sketchfab.com/3d-models/crane-arsinoitherium-390d7a50a8ab4fb094dc4460afccd345) by Tavernier Amaury (https://sketchfab.com/svtavernier) licensed under CC-BY-NC-SA-4.0 (http://creativecommons.org/licenses/by-nc-sa/4.0/)
