@@ -1,35 +1,84 @@
-.centered {
-    height: 20%;
-    justify-content: center;
-    position: fixed;
-    bottom: 0%;
-    display: flex;
-    flex-direction: row;
+/* Style général */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+    background-color: #000;
+    color: white;
+}
+
+/* Scène AR */
+a-scene {
     width: 100%;
-    margin: 0px auto;
-    left: 0;
-    right: 0;
+    height: 100vh;
+}
+
+/* Instructions en haut */
+.instructions {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.6);
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 1.2em;
+    text-align: center;
+    z-index: 1000;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Boutons d'interaction */
+.controls {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 1000;
 }
 
 button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 2px solid white;
-    background-color: transparent;
-    width: 2em;
-    height: 2em;
-    border-radius: 100%;
-    font-size: 2em;
-    background-color: rgba(0, 0, 0, 0.4);
+    background: #007bff;
     color: white;
-    outline: none;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+    transition: background 0.3s, transform 0.2s;
 }
 
-.instructions {
-    position: fixed;
-    top: 5%;
-    font-size: 1.25em;
-    color: white;
-    z-index: 999999;
+button:hover {
+    background: #0056b3;
+    transform: scale(1.05);
+}
+
+button:focus {
+    outline: 2px solid #0056b3;
+    outline-offset: 3px;
+}
+
+/* Styles pour petits écrans */
+@media (max-width: 768px) {
+    .instructions {
+        font-size: 1em;
+        padding: 5px 10px;
+    }
+
+    button {
+        font-size: 0.9em;
+        padding: 8px 12px;
+    }
 }
