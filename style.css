@@ -71,7 +71,7 @@ button:focus {
 }
 
 /* Styles pour petits écrans */
-@media (max-width: 768px) {
+/*@media (max-width: 768px) {
     .instructions {
         font-size: 1em;
         padding: 5px 10px;
@@ -81,4 +81,4 @@ button:focus {
         font-size: 0.9em;
         padding: 8px 12px;
     }
-}
+}*/
