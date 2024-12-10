@@ -57,6 +57,12 @@ const models = [
         rotation: '0 180 0',
         info: 'Dragonite, Lv. 99, HP 150/150',
     },
+    {
+        url: './assets/sac_dapparat_touareg/scene.gltf',
+        scale: '0.04 0.04 0.04',
+        rotation: '0 180 0',
+        info: 'Sac_dapparat_touareg',
+    },
 ];
 
 let modelIndex = 0;
