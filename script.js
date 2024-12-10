@@ -29,7 +29,7 @@ window.onload = () => {
 function loadPlaces(lat, lng) {
     return [
         {
-            name: 'Pokèmon',
+            name: 'Costume d\'Osiris',
             location: {
                 lat: lat,
                 lng: lng,
@@ -40,28 +40,18 @@ function loadPlaces(lat, lng) {
 
 const models = [
     {
-        url: './assets/magnemite/scene.gltf',
-        scale: '0.3 0.3 0.3',
-        info: 'Magnemite, Lv. 5, HP 10/10',
-        rotation: '0 180 0',
-    },
-    {
-        url: './assets/articuno/scene.gltf',
-        scale: '0.01 0.01 0.01',
-        rotation: '0 180 0',
-        info: 'Articuno, Lv. 80, HP 100/100',
-    },
-    {
-        url: './assets/dragonite/scene.gltf',
-        scale: '0.04 0.04 0.04',
-        rotation: '0 180 0',
-        info: 'Dragonite, Lv. 99, HP 150/150',
-    },
-    {
         url: './assets/costume_dosiris/scene.gltf',
         scale: '0.04 0.04 0.04',
         rotation: '0 180 0',
-        info: 'Costume_dosiris, Lv. 99, HP 150/150',
+        info: `
+            <h3>Costume d'Osiris</h3>
+            <p><strong>Contexte Historique :</strong> Ce costume évoque Osiris, une des figures centrales de la mythologie égyptienne antique, dieu des morts et de la résurrection.</p>
+            <ul>
+                <li><strong>Coiffe solaire :</strong> Une couronne Atef, ornée de plumes et d'un disque solaire, symbole de pouvoir et de lien avec le divin.</li>
+                <li><strong>Chats en ceinture :</strong> Rappel des momies de félins, attribuées aux rituels funéraires et à la protection divine.</li>
+                <li><strong>Matériaux :</strong> Représentation traditionnelle en or et motifs sacrés.</li>
+            </ul>
+        `,
     },
 ];
 
@@ -76,7 +66,7 @@ const setModel = (model, entity) => {
     entity.setAttribute('animation', 'property: position; dir: alternate; loop: true; dur: 3000; to: 0 5.2 10');
 
     const infoDiv = document.querySelector('.instructions');
-    infoDiv.innerText = model.info;
+    infoDiv.innerHTML = model.info; // Utilisation de innerHTML pour afficher du HTML formaté
 };
 
 const renderPlaces = (places) => {
@@ -88,7 +78,7 @@ const renderPlaces = (places) => {
 
         const model = document.createElement('a-entity');
         model.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
-        model.setAttribute('position', '0 5 10');
+        model.setAttribute('position', '0 5 10'); // Placer l'objet à une hauteur réaliste
         model.setAttribute('look-at', '[camera]');
 
         setModel(models[modelIndex], model);
