@@ -1,3 +1,16 @@
+// Empêcher le zoom tactile et via molette
+document.addEventListener('gesturestart', (e) => e.preventDefault());
+document.addEventListener('gesturechange', (e) => e.preventDefault());
+document.addEventListener('gestureend', (e) => e.preventDefault());
+
+// Bloquer le zoom avec la molette
+document.addEventListener('wheel', (e) => {
+    if (e.ctrlKey) {
+        e.preventDefault();
+    }
+}, { passive: false });
+
+
 window.onload = () => {
     const instructions = document.querySelector('.instructions');
     const button = document.querySelector('button[data-action="change"]');
