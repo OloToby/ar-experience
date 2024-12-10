@@ -1,29 +1,39 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>GeoAR.js demo</title>
-    <script src='https://aframe.io/releases/0.9.2/aframe.min.js'></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galerie d'Art en AR</title>
+    <!-- A-Frame and AR.js -->
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <script src="https://raw.githack.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script>
     <script src="https://raw.githack.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
     <script>
-        THREEx.ArToolkitContext.baseURL = 'https://raw.githack.com/jeromeetienne/ar.js/master/three.js/'
+        THREEx.ArToolkitContext.baseURL = 'https://raw.githack.com/jeromeetienne/ar.js/master/three.js/';
     </script>
     <script src="./script.js"></script>
-    <link rel="stylesheet" type="text/css" href="./style.css"/>
+    <link rel="stylesheet" href="./styles.css">
 </head>
+<body>
+    <div class="instructions">
+        <p>Bienvenue dans la Galerie d'Art en Réalité Augmentée. Déplacez votre caméra pour découvrir les artefacts.</p>
+    </div>
 
-<body style='margin: 0; overflow: hidden;'>
-    <div class="centered instructions"></div>
-    <a-scene 
-        vr-mode-ui='enabled: false' 
-        embedded
-        arjs='sourceType: webcam; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960; debugUIEnabled: false;'>
-    <a-camera gps-camera rotation-reader></a-camera>
-</a-scene>
-<div class="centered">
-    <button data-action="change"></button>
-</div>
+    <!-- AR Scene -->
+    <a-scene embedded arjs='sourceType: webcam; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960; debugUIEnabled: false;'>
+        <a-camera gps-camera rotation-reader></a-camera>
+    </a-scene>
+
+    <!-- Controls -->
+    <div class="controls">
+        <button data-action="change" class="action-btn">🔄</button>
+        <button data-action="info" class="action-btn">ℹ️</button>
+    </div>
+
+    <div id="info-panel" class="info-panel hidden">
+        <h3 id="model-title"></h3>
+        <p id="model-description"></p>
+        <button class="close-btn" onclick="toggleInfoPanel()">✖</button>
+    </div>
 </body>
+</html>
