@@ -1,0 +1,11 @@
+Model Information:
+* title:	Sac d’apparat touareg
+* source:	https://sketchfab.com/3d-models/sac-dapparat-touareg-5cfa7b0217ef4038931d387a0db6ff5d
+* author:	Alienor.org, Conseil des musées (https://sketchfab.com/alienor.org)
+
+Model License:
+* license type:	CC-BY-NC-ND-4.0 (http://creativecommons.org/licenses/by-nc-nd/4.0/)
+* requirements:	Author must be credited. No commercial use. Modified versions can not be distributed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Sac d’apparat touareg" (https://sketchfab.com/3d-models/sac-dapparat-touareg-5cfa7b0217ef4038931d387a0db6ff5d) by Alienor.org, Conseil des musées (https://sketchfab.com/alienor.org) licensed under CC-BY-NC-ND-4.0 (http://creativecommons.org/licenses/by-nc-nd/4.0/)

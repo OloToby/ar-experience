@@ -1,0 +1,11 @@
+Model Information:
+* title:	Costume d’Osiris
+* source:	https://sketchfab.com/3d-models/costume-dosiris-0687285719554e89a81da48ebd53deb5
+* author:	Alienor.org, Conseil des musées (https://sketchfab.com/alienor.org)
+
+Model License:
+* license type:	CC-BY-NC-ND-4.0 (http://creativecommons.org/licenses/by-nc-nd/4.0/)
+* requirements:	Author must be credited. No commercial use. Modified versions can not be distributed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Costume d’Osiris" (https://sketchfab.com/3d-models/costume-dosiris-0687285719554e89a81da48ebd53deb5) by Alienor.org, Conseil des musées (https://sketchfab.com/alienor.org) licensed under CC-BY-NC-ND-4.0 (http://creativecommons.org/licenses/by-nc-nd/4.0/)
