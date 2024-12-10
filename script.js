@@ -1,6 +1,6 @@
 window.onload = () => {
-    const changeButton = document.querySelector('button[data-action="change"]');
-    changeButton.innerText = '🔄';
+    const button = document.querySelector('button[data-action="change"]');
+    button.innerText = 'Changer le modèle';
 
     if ('geolocation' in navigator) {
         navigator.geolocation.getCurrentPosition(
@@ -44,11 +44,12 @@ const models = [
         scale: '0.04 0.04 0.04',
         rotation: '0 180 0',
         info: `
-            <strong>Costume d'Osiris</strong>
-            <p>Ce costume représente Osiris, dieu égyptien des morts et de la résurrection.</p>
+            <h3>Costume d'Osiris</h3>
+            <p><strong>Contexte Historique :</strong> Ce costume évoque Osiris, une des figures centrales de la mythologie égyptienne antique, dieu des morts et de la résurrection.</p>
             <ul>
-                <li><strong>Coiffe solaire :</strong> Symbole de pouvoir divin.</li>
-                <li><strong>Chats en ceinture :</strong> Protection et symbolisme funéraire.</li>
+                <li><strong>Coiffe solaire :</strong> Une couronne Atef, ornée de plumes et d'un disque solaire, symbole de pouvoir et de lien avec le divin.</li>
+                <li><strong>Chats en ceinture :</strong> Rappel des momies de félins, attribuées aux rituels funéraires et à la protection divine.</li>
+                <li><strong>Matériaux :</strong> Représentation traditionnelle en or et motifs sacrés.</li>
             </ul>
         `,
     },
@@ -59,14 +60,13 @@ let modelIndex = 0;
 const setModel = (model, entity) => {
     if (model.scale) entity.setAttribute('scale', model.scale);
     if (model.rotation) entity.setAttribute('rotation', model.rotation);
+    if (model.position) entity.setAttribute('position', model.position);
 
     entity.setAttribute('gltf-model', model.url);
     entity.setAttribute('animation', 'property: position; dir: alternate; loop: true; dur: 3000; to: 0 5.2 10');
 
-    const title = document.getElementById('model-title');
-    const description = document.getElementById('model-description');
-    title.innerText = 'Costume d\'Osiris';
-    description.innerHTML = model.info;
+    const infoDiv = document.querySelector('.instructions');
+    infoDiv.innerHTML = model.info; // Utilisation de innerHTML pour afficher du HTML formaté
 };
 
 const renderPlaces = (places) => {
@@ -78,7 +78,7 @@ const renderPlaces = (places) => {
 
         const model = document.createElement('a-entity');
         model.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
-        model.setAttribute('position', '0 5 10');
+        model.setAttribute('position', '0 5 10'); // Placer l'objet à une hauteur réaliste
         model.setAttribute('look-at', '[camera]');
 
         setModel(models[modelIndex], model);
@@ -94,8 +94,3 @@ const renderPlaces = (places) => {
         scene.appendChild(model);
     });
 };
-
-function toggleInfoPanel() {
-    const panel = document.getElementById('info-panel');
-    panel.classList.toggle('hidden');
-}
