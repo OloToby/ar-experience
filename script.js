@@ -3,20 +3,29 @@ document.addEventListener('gesturestart', (e) => e.preventDefault());
 document.addEventListener('gesturechange', (e) => e.preventDefault());
 document.addEventListener('gestureend', (e) => e.preventDefault());
 
-// Bloquer le zoom avec la molette
 document.addEventListener('wheel', (e) => {
     if (e.ctrlKey) {
         e.preventDefault();
     }
 }, { passive: false });
 
-
 window.onload = () => {
     const instructions = document.querySelector('.instructions');
-    const button = document.querySelector('button[data-action="change"]');
-    button.innerText = 'Changer le modèle';
+    const changeButton = document.querySelector('button[data-action="change"]');
+    const infoButton = document.querySelector('button[data-action="info"]');
+    let currentModelInfo = ""; // Variable pour stocker les infos actuelles
 
+    changeButton.innerText = 'Changer le modèle';
     instructions.innerText = 'Chargement GPS...';
+
+    // Ajouter un événement pour afficher les infos
+    infoButton.addEventListener('click', () => {
+        if (currentModelInfo) {
+            instructions.innerText = `Info : ${currentModelInfo}`;
+        } else {
+            instructions.innerText = 'Aucun modèle chargé.';
+        }
+    });
 
     if ('geolocation' in navigator) {
         navigator.geolocation.getCurrentPosition(
@@ -43,6 +52,45 @@ window.onload = () => {
         const places = loadPlaces(simulatedLatitude, simulatedLongitude);
         renderPlaces(places);
     }
+
+    const setModel = (model, entity) => {
+        if (model.scale) entity.setAttribute('scale', model.scale);
+        if (model.rotation) entity.setAttribute('rotation', model.rotation);
+
+        entity.setAttribute('gltf-model', model.url);
+        entity.setAttribute(
+            'animation',
+            'property: position; dir: alternate; loop: true; dur: 3000; to: 0 5.2 10'
+        );
+
+        currentModelInfo = model.info; // Mettre à jour les infos du modèle actuel
+        instructions.innerText = `Modèle chargé : ${model.info}`;
+    };
+
+    const renderPlaces = (places) => {
+        const scene = document.querySelector('a-scene');
+
+        places.forEach((place) => {
+            const latitude = place.location.lat;
+            const longitude = place.location.lng;
+
+            const model = document.createElement('a-entity');
+            model.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
+            model.setAttribute('position', '0 5 10');
+            model.setAttribute('look-at', '[camera]');
+
+            setModel(models[modelIndex], model);
+
+            model.setAttribute('animation-mixer', '');
+
+            changeButton.addEventListener('click', () => {
+                modelIndex = (modelIndex + 1) % models.length;
+                setModel(models[modelIndex], model);
+            });
+
+            scene.appendChild(model);
+        });
+    };
 };
 
 function loadPlaces(lat, lng) {
@@ -107,44 +155,3 @@ const models = [
         info: 'Masque Gelede',
     },
 ];
-
-let modelIndex = 0;
-
-const setModel = (model, entity) => {
-    if (model.scale) entity.setAttribute('scale', model.scale);
-    if (model.rotation) entity.setAttribute('rotation', model.rotation);
-
-    entity.setAttribute('gltf-model', model.url);
-    entity.setAttribute(
-        'animation',
-        'property: position; dir: alternate; loop: true; dur: 3000; to: 0 5.2 10'
-    );
-
-    const infoDiv = document.querySelector('.instructions');
-    infoDiv.innerText = `Modèle chargé : ${model.info}`;
-};
-
-const renderPlaces = (places) => {
-    const scene = document.querySelector('a-scene');
-
-    places.forEach((place) => {
-        const latitude = place.location.lat;
-        const longitude = place.location.lng;
-
-        const model = document.createElement('a-entity');
-        model.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
-        model.setAttribute('position', '0 5 10');
-        model.setAttribute('look-at', '[camera]');
-
-        setModel(models[modelIndex], model);
-
-        model.setAttribute('animation-mixer', '');
-
-        document.querySelector('button[data-action="change"]').addEventListener('click', () => {
-            modelIndex = (modelIndex + 1) % models.length;
-            setModel(models[modelIndex], model);
-        });
-
-        scene.appendChild(model);
-    });
-};
