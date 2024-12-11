@@ -13,15 +13,14 @@ window.onload = () => {
     const instructions = document.querySelector('.instructions');
     const changeButton = document.querySelector('button[data-action="change"]');
     const infoButton = document.querySelector('button[data-action="info"]');
-    let currentModelInfo = ""; // Variable pour stocker les infos actuelles
+    let currentModel = null; // Variable pour stocker l'objet du modèle actuel
 
-    changeButton.innerText = 'Changer le modèle';
     instructions.innerText = 'Chargement GPS...';
 
-    // Ajouter un événement pour afficher les infos
+    // Événement pour afficher les infos du modèle actuel
     infoButton.addEventListener('click', () => {
-        if (currentModelInfo) {
-            instructions.innerText = `Info : ${currentModelInfo}`;
+        if (currentModel) {
+            instructions.innerText = `Info : ${currentModel.info}`;
         } else {
             instructions.innerText = 'Aucun modèle chargé.';
         }
@@ -63,7 +62,7 @@ window.onload = () => {
             'property: position; dir: alternate; loop: true; dur: 3000; to: 0 5.2 10'
         );
 
-        currentModelInfo = model.info; // Mettre à jour les infos du modèle actuel
+        currentModel = model; // Mettre à jour l'objet du modèle actuel
         instructions.innerText = `Modèle chargé : ${model.info}`;
     };
 
@@ -83,6 +82,7 @@ window.onload = () => {
 
             model.setAttribute('animation-mixer', '');
 
+            // Événement pour changer le modèle
             changeButton.addEventListener('click', () => {
                 modelIndex = (modelIndex + 1) % models.length;
                 setModel(models[modelIndex], model);
@@ -155,3 +155,5 @@ const models = [
         info: 'Masque Gelede',
     },
 ];
+
+let modelIndex = 0;
