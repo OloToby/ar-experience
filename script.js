@@ -107,52 +107,34 @@ function loadPlaces(lat, lng) {
 
 const models = [
     {
-        url: './assets/magnemite/scene.gltf',
-        scale: '0.3 0.3 0.3',
-        info: 'Magnemite, Lv. 5, HP 10/10',
-        rotation: '0 180 0',
-    },
-    {
-        url: './assets/articuno/scene.gltf',
-        scale: '0.01 0.01 0.01',
-        rotation: '0 180 0',
-        info: 'Articuno, Lv. 80, HP 100/100',
-    },
-    {
-        url: './assets/dragonite/scene.gltf',
-        scale: '0.04 0.04 0.04',
-        rotation: '0 180 0',
-        info: 'Dragonite, Lv. 99, HP 150/150',
-    },
-    {
         url: './assets/sac_dapparat_touareg/scene.gltf',
-        scale: '1 1 1',
+        scale: '0.5 0.5 0.5',
         rotation: '0 180 0',
-        info: 'Sac d\'apparat touareg',
+        info: 'Sac d\'apparat utilisé par les Touaregs, symbole de statut social et d\'identité culturelle.',
     },
     {
         url: './assets/costume_dosiris/scene.gltf',
-        scale: '1 1 1',
+        scale: '0.5 0.5 0.5',
         rotation: '0 180 0',
-        info: 'Costume d\'Osiris',
+        info: 'Costume rituel représentant Osiris, utilisé dans les cérémonies religieuses de l\'Égypte antique.',
     },
     {
         url: './assets/crane_arsinoitherium/scene.gltf',
-        scale: '1 1 1',
+        scale: '0.5 0.5 0.5',
         rotation: '0 180 0',
-        info: 'Crâne Arsinoitherium',
+        info: 'Crâne fossile d\'Arsinoitherium, un mammifère préhistorique originaire d\'Afrique.',
     },
     {
         url: './assets/masque_dinitiation_des_jeunes_diola_au_senegal/scene.gltf',
-        scale: '1 1 1',
+        scale: '0.5 0.5 0.5',
         rotation: '0 180 0',
-        info: 'Masque d\'initiation des jeunes Diola au Sénégal',
+        info: 'Masque traditionnel utilisé lors des rites d\'initiation des jeunes garçons Diola au Sénégal.',
     },
     {
         url: './assets/masque_gelede/scene.gltf',
-        scale: '1 1 1',
+        scale: '0.5 0.5 0.5',
         rotation: '0 180 0',
-        info: 'Masque Gelede',
+        info: 'Masque Gelede, porté dans les cérémonies des Yoruba pour honorer les femmes et les forces de la nature.',
     },
 ];
 
