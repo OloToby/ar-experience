@@ -114,32 +114,33 @@ function loadPlaces(lat, lng) {
 const models = [
     {
         url: './assets/sac_dapparat_touareg/scene.gltf',
-        scale: '0.02 0.02 0.02', // Échelle réduite
+        scale: '0.08 0.08 0.08',
         rotation: '0 180 0',
         info: 'Sac d\'apparat utilisé par les Touaregs, symbole de statut social et d\'identité culturelle.',
     },
     {
         url: './assets/costume_dosiris/scene.gltf',
-        scale: '0.02 0.02 0.02', // Échelle réduite
+        scale: '0.08 0.08 0.08',
         rotation: '0 180 0',
         info: 'Costume rituel représentant Osiris, utilisé dans les cérémonies religieuses de l\'Égypte antique.',
     },
     {
         url: './assets/crane_arsinoitherium/scene.gltf',
-        scale: '0.02 0.02 0.02', // Échelle réduite
+        scale: '0.08 0.08 0.08',
         rotation: '0 180 0',
         info: 'Crâne fossile d\'Arsinoitherium, un mammifère préhistorique originaire d\'Afrique.',
     },
     {
         url: './assets/masque_dinitiation_des_jeunes_diola_au_senegal/scene.gltf',
-        scale: '0.02 0.02 0.02', // Échelle réduite
+        scale: '0.08 0.08 0.08',
         rotation: '0 180 0',
         info: 'Masque traditionnel utilisé lors des rites d\'initiation des jeunes garçons Diola au Sénégal.',
     },
     {
         url: './assets/masque_gelede/scene.gltf',
-        scale: '0.02 0.02 0.02', // Échelle réduite
+        scale: '0.08 0.08 0.08',
         rotation: '0 180 0',
         info: 'Masque Gelede, porté dans les cérémonies des Yoruba pour honorer les femmes et les forces de la nature.',
     },
 ];
+
